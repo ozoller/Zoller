@@ -3,96 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>eZoller GmbH – Digitale Zollarabwicklung & Logistik</title>
+    <title>eZoller GmbH | Next-Gen Customs & Global Trade Solutions</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <div class="background-grid"></div>
+
     <header class="navbar">
         <div class="container nav-container">
-            <a href="#" class="logo">eZoller<span>GmbH</span></a>
+            <a href="#" class="logo">eZoller<span class="dot">.</span>ai</a>
             <nav>
                 <ul class="nav-links" id="navLinks">
-                    <li><a href="#home">Startseite</a></li>
-                    <li><a href="#services">Dienstleistungen</a></li>
+                    <li><a href="#services">Leistungen</a></li>
+                    <li><a href="#features">Technologie</a></li>
+                    <li><a href="#compliance">Compliance</a></li>
                     <li><a href="#about">Über uns</a></li>
-                    <li><a href="#contact" class="btn-nav">Kontakt</a></li>
+                    <li><a href="#contact" class="btn-glow">Kontakt</a></li>
                 </ul>
             </nav>
-            <button class="burger" id="burger" aria-label="Menü öffnen">
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
+            <button class="burger" id="burger" aria-label="Menü">
+                <span></span><span></span><span></span>
             </button>
         </div>
     </header>
 
-    <section id="home" class="hero">
+    <section class="hero">
         <div class="container hero-content">
-            <h1>Ihre Zolldeklaration. Einfach. Digital. Zuverlässig.</h1>
-            <p>Die eZoller GmbH optimiert Ihre internationalen Handelsprozesse mit modernen und rechtssicheren Digitallösungen.</p>
-            <a href="#contact" class="btn-primary">Jetzt Beratung anfordern</a>
+            <div class="badge">Zollabwicklung 4.0</div>
+            <h1>Automatisierte Zollprozesse für den globalen Handel</h1>
+            <p>Die eZoller GmbH kombiniert jahrzehntelange Zollerfahrung mit KI-gestützter Automatisierung. Schnell, rechtssicher und 100% digital.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn-primary">Jetzt Erstberatung buchen</a>
+                <a href="#services" class="btn-secondary">Leistungen entdecken &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="container stats-grid">
+            <div class="stat-item">
+                <span class="stat-number">24/7</span>
+                <span class="stat-label">Automatisierte Abwicklung</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">100%</span>
+                <span class="stat-label">ATLAS & EORI Konformität</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">&lt; 15 min</span>
+                <span class="stat-label">Durchschnittliche Freigabezeit</span>
+            </div>
         </div>
     </section>
 
     <section id="services" class="services">
         <div class="container">
-            <h2>Unsere Dienstleistungen</h2>
+            <h2 class="section-title">Unsere Kernkompetenzen</h2>
             <div class="cards-grid">
                 <div class="card">
+                    <div class="card-icon">📦</div>
                     <h3>Import- & Exportabwicklung</h3>
-                    <p>Reibungslose Zollarabwicklung für Ihre Wareneinfuhr und -ausfuhr nach aktuellen Compliance-Standards.</p>
+                    <p>Vollständige Erstellung und Übermittlung aller Zolldokumente (ATLAS, NCTS) für den weltweiten Warenverkehr.</p>
                 </div>
                 <div class="card">
-                    <h3>Digitales Zollmanagement</h3>
-                    <p>Automatisierte Schnittstellen und Prozesse zur Minimierung von Standzeiten und Bürokratie.</p>
-                </div>
-                <div class="card">
-                    <h3>Zollberatung & Audit</h3>
-                    <p>Strategische Beratung zur Optimierung von Abgaben, Tarifierung und Freihandelsabkommen.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="about" class="about">
-        <div class="container">
-            <h2>Über eZoller GmbH</h2>
-            <p>Als erfahrener Partner im internationalen Handel verbinden wir tiefgreifendes Zoll-Know-how mit modernen digitalen Technologien. Unser Ziel ist es, globale Lieferketten effizienter und transparenter zu gestalten.</p>
-        </div>
-    </section>
-
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>Kontaktieren Sie uns</h2>
-            <form id="contactForm" class="contact-form">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" required placeholder="Ihr Name">
-                </div>
-                <div class="form-group">
-                    <label for="email">E-Mail</label>
-                    <input type="email" id="email" required placeholder="ihre.adresse@firma.de">
-                </div>
-                <div class="form-group">
-                    <label for="message">Nachricht</label>
-                    <textarea id="message" rows="5" required placeholder="Wie können wir Ihnen helfen?"></textarea>
-                </div>
-                <button type="submit" class="btn-primary">Nachricht senden</button>
-            </form>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container footer-content">
-            <p>&copy; 2026 eZoller GmbH. Alle Rechte vorbehalten.</p>
-            <div class="footer-links">
-                <a href="#">Impressum</a>
-                <a href="#">Datenschutz</a>
-            </div>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
-</html>
+                    <div class="card-icon">⚡</div>
+                    <h3>Automatisierte Schnitt
