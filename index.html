@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>eZoller GmbH | Next-Gen Customs & Global Trade Solutions</title>
+    <title>eZoller GmbH | Digitale Zollarabwicklung & Lösungen</title>
     <style>
         :root {
-            --bg-color: #0b0f19;
-            --card-bg: rgba(255, 255, 255, 0.03);
-            --card-border: rgba(255, 255, 255, 0.08);
-            --primary-neon: #00f2fe;
-            --secondary-neon: #4facfe;
-            --text-main: #f0f4f8;
-            --text-muted: #94a3b8;
+            --zoller-red: #D32F2F;
+            --zoller-dark-red: #B71C1C;
+            --zoller-dark: #1F242B;
+            --zoller-gray: #F4F5F7;
+            --zoller-card: #FFFFFF;
+            --text-dark: #222222;
+            --text-muted: #666666;
+            --border-color: #E0E0E0;
         }
 
         * {
@@ -23,201 +24,359 @@
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
+            background-color: var(--zoller-gray);
+            color: var(--text-dark);
             line-height: 1.6;
+            text-align: center; /* Alles zentral ausrichten */
         }
 
         .container {
             max-width: 1100px;
             margin: 0 auto;
             padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         /* Header / Navigation */
         .navbar {
-            background: rgba(11, 15, 25, 0.9);
-            border-bottom: 1px solid var(--card-border);
+            background: #FFFFFF;
+            border-bottom: 3px solid var(--zoller-red);
             position: fixed;
             width: 100%;
             top: 0;
-            z-index: 10;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
         .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 70px;
+            height: 80px;
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--text-main);
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--zoller-dark);
             text-decoration: none;
+            letter-spacing: -0.5px;
         }
 
-        .logo .dot { 
-            color: var(--primary-neon); 
+        .logo span { 
+            color: var(--zoller-red); 
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 20px;
+            gap: 25px;
             align-items: center;
+            justify-content: center;
+        }
+
+        .nav-links li {
+            position: relative;
         }
 
         .nav-links a {
-            color: var(--text-muted);
+            color: var(--zoller-dark);
             text-decoration: none;
+            font-weight: 600;
+            padding: 10px 0;
             transition: color 0.3s;
         }
 
         .nav-links a:hover {
-            color: var(--primary-neon);
+            color: var(--zoller-red);
+        }
+
+        /* Dropdown Menu Tab */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #FFFFFF;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 6px;
+            list-style: none;
+            min-width: 220px;
+            border-top: 2px solid var(--zoller-red);
+            padding: 10px 0;
+        }
+
+        .dropdown-menu li {
+            width: 100%;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 10px 20px;
+            color: var(--text-dark);
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: var(--zoller-gray);
+            color: var(--zoller-red);
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
         }
 
         /* Hero Section */
         .hero {
-            padding: 150px 0 80px;
-            text-align: center;
+            padding: 180px 0 80px;
+            background: linear-gradient(180deg, #FFFFFF 0%, var(--zoller-gray) 100%);
+            width: 100%;
         }
 
         .badge {
             display: inline-block;
-            padding: 4px 12px;
-            background: rgba(0, 242, 254, 0.1);
-            border: 1px solid var(--primary-neon);
-            color: var(--primary-neon);
-            border-radius: 12px;
-            font-size: 0.8rem;
-            margin-bottom: 15px;
+            padding: 6px 16px;
+            background: rgba(211, 47, 47, 0.08);
+            border: 1px solid var(--zoller-red);
+            color: var(--zoller-red);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
         }
 
         .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
+            font-size: 2.8rem;
+            color: var(--zoller-dark);
+            margin-bottom: 20px;
+            max-width: 800px;
         }
 
         .hero p {
             color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto 30px;
+            font-size: 1.15rem;
+            max-width: 650px;
+            margin: 0 auto 35px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
         }
 
         /* Buttons */
-        .btn-glow {
-            background: linear-gradient(135deg, var(--secondary-neon), var(--primary-neon));
-            color: #000 !important;
-            padding: 10px 20px;
-            border-radius: 20px;
-            font-weight: bold;
+        .btn-red {
+            background: var(--zoller-red);
+            color: #FFFFFF !important;
+            padding: 12px 28px;
+            border-radius: 4px;
+            font-weight: 700;
             text-decoration: none;
+            border: none;
+            transition: background 0.3s;
         }
 
-        .btn-primary {
-            background: var(--text-main);
-            color: var(--bg-color);
-            padding: 12px 24px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: bold;
+        .btn-red:hover {
+            background: var(--zoller-dark-red);
         }
 
-        .btn-secondary {
-            color: var(--text-main);
+        .btn-outline {
+            background: transparent;
+            color: var(--zoller-dark);
+            border: 2px solid var(--zoller-dark);
+            padding: 10px 26px;
+            border-radius: 4px;
+            font-weight: 700;
             text-decoration: none;
-            margin-left: 15px;
+            transition: all 0.3s;
+        }
+
+        .btn-outline:hover {
+            background: var(--zoller-dark);
+            color: #FFFFFF;
         }
 
         /* Services Section */
         .services { 
             padding: 80px 0; 
+            width: 100%;
         }
 
         .section-title { 
-            text-align: center; 
-            margin-bottom: 40px; 
+            font-size: 2.2rem;
+            color: var(--zoller-dark);
+            margin-bottom: 10px; 
+        }
+
+        .section-subtitle {
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            max-width: 600px;
         }
 
         .cards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            width: 100%;
         }
 
         .card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            padding: 25px;
-            border-radius: 12px;
+            background: var(--zoller-card);
+            border: 1px solid var(--border-color);
+            padding: 35px 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            transition: transform 0.3s, border-color 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--zoller-red);
         }
 
         .card-icon { 
-            font-size: 2rem; 
-            margin-bottom: 10px; 
+            font-size: 2.5rem; 
+            margin-bottom: 15px; 
+        }
+
+        .card h3 {
+            color: var(--zoller-dark);
+            margin-bottom: 12px;
+            font-size: 1.3rem;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
         }
 
         /* Formular Section */
         .contact { 
-            padding: 60px 0; 
+            padding: 80px 0; 
+            background: #FFFFFF;
+            width: 100%;
+            border-top: 1px solid var(--border-color);
         }
 
         .contact-form {
-            max-width: 500px;
+            max-width: 550px;
+            width: 100%;
             margin: 0 auto;
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            padding: 30px;
-            border-radius: 12px;
+            background: var(--zoller-gray);
+            border: 1px solid var(--border-color);
+            padding: 40px;
+            border-radius: 8px;
+            text-align: left; /* Text der Formular-Labels linksbündig für Lesbarkeit */
         }
 
         .form-group { 
-            margin-bottom: 15px; 
+            margin-bottom: 20px; 
         }
 
         .form-group label { 
             display: block; 
-            margin-bottom: 5px; 
-            color: var(--text-muted); 
+            margin-bottom: 8px; 
+            color: var(--zoller-dark);
+            font-weight: 600;
+            font-size: 0.9rem;
         }
 
         .form-group input, 
         .form-group textarea {
             width: 100%;
-            padding: 10px;
-            background: #000;
-            border: 1px solid var(--card-border);
-            color: #fff;
-            border-radius: 6px;
+            padding: 12px;
+            background: #FFFFFF;
+            border: 1px solid var(--border-color);
+            color: var(--text-dark);
+            border-radius: 4px;
+            outline: none;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus, 
+        .form-group textarea:focus {
+            border-color: var(--zoller-red);
         }
 
         .btn-full { 
             width: 100%; 
-            border: none; 
             cursor: pointer; 
+            font-size: 1rem;
         }
 
         /* Footer */
         footer {
-            border-top: 1px solid var(--card-border);
-            padding: 20px 0;
-            text-align: center;
-            color: var(--text-muted);
+            background: var(--zoller-dark);
+            color: #FFFFFF;
+            padding: 40px 0;
+            width: 100%;
+        }
+
+        footer p {
+            color: #A0AAB0;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                height: auto;
+                padding: 15px;
+            }
+            .nav-links {
+                margin-top: 15px;
+                flex-wrap: wrap;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .dropdown-menu {
+                position: static;
+                transform: none;
+                box-shadow: none;
+            }
         }
     </style>
 </head>
 <body>
 
     <header class="navbar">
-        <div class="container nav-container">
-            <a href="#" class="logo">eZoller<span class="dot">.</span>ai</a>
+        <div class="nav-container">
+            <a href="#" class="logo">eZoller<span>GmbH</span></a>
             <nav>
                 <ul class="nav-links">
-                    <li><a href="#services">Leistungen</a></li>
-                    <li><a href="#contact" class="btn-glow">Kontakt</a></li>
+                    <li><a href="#">Startseite</a></li>
+                    
+                    <li class="dropdown">
+                        <a href="#services">Leistungen &#9662;</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#services">Import & Export</a></li>
+                            <li><a href="#services">Zoll-Schnittstellen</a></li>
+                            <li><a href="#services">Tarifierung & Audit</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li><a href="#contact" class="btn-red">Kontakt</a></li>
                 </ul>
             </nav>
         </div>
@@ -225,12 +384,12 @@
 
     <section class="hero">
         <div class="container">
-            <div class="badge">Zollabwicklung 4.0</div>
+            <div class="badge">Zoll & Logistik 4.0</div>
             <h1>Automatisierte Zollprozesse für den globalen Handel</h1>
-            <p>Die eZoller GmbH kombiniert Zollerfahrung mit KI-gestützter Automatisierung. Schnell, rechtssicher und digital.</p>
-            <div>
-                <a href="#contact" class="btn-primary">Erstberatung buchen</a>
-                <a href="#services" class="btn-secondary">Leistungen entdecken &rarr;</a>
+            <p>Die eZoller GmbH kombiniert langjährige Zollerfahrung mit modernen, KI-gestützten Digitallösungen. Schnell, rechtssicher und effizient.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn-red">Erstberatung buchen</a>
+                <a href="#services" class="btn-outline">Leistungen entdecken</a>
             </div>
         </div>
     </section>
@@ -238,21 +397,23 @@
     <section id="services" class="services">
         <div class="container">
             <h2 class="section-title">Unsere Kernkompetenzen</h2>
+            <p class="section-subtitle">Maßgeschneiderte Digitallösungen für Ihre grenzüberschreitenden Warenströme.</p>
+            
             <div class="cards-grid">
                 <div class="card">
                     <div class="card-icon">📦</div>
                     <h3>Import- & Exportabwicklung</h3>
-                    <p>Erstellung aller Zolldokumente (ATLAS, NCTS) für den weltweiten Warenverkehr.</p>
+                    <p>Rechtssichere Erstellung und Übermittlung aller Zollausfuhren und EInfuhren über ATLAS & NCTS.</p>
                 </div>
                 <div class="card">
                     <div class="card-icon">⚡</div>
                     <h3>Automatisierte Schnittstellen</h3>
-                    <p>Anbindung Ihres ERP-Systems an das Zollamt zur Datenübertragung in Echtzeit.</p>
+                    <p>Direkte ERP-Anbindung zur Übertragung Ihrer Zoll- und Produktdaten in Echtzeit.</p>
                 </div>
                 <div class="card">
                     <div class="card-icon">🔍</div>
                     <h3>Tarifierung & Beratung</h3>
-                    <p>Präzise Einreihung in den Zolltarif und Optimierung von Zollabgaben.</p>
+                    <p>Präzise Einreihung Ihrer Waren in den Zolltarif zur rechtssicheren Optimierung von Abgaben.</p>
                 </div>
             </div>
         </div>
@@ -261,20 +422,22 @@
     <section id="contact" class="contact">
         <div class="container">
             <h2 class="section-title">Kontaktieren Sie uns</h2>
+            <p class="section-subtitle">Wir freuen uns darauf, Ihre Zollprozesse zu optimieren.</p>
+            
             <form id="contactForm" class="contact-form">
                 <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" required placeholder="Ihr Name">
+                    <label for="name">Vollständiger Name</label>
+                    <input type="text" id="name" required placeholder="Max Mustermann">
                 </div>
                 <div class="form-group">
-                    <label for="email">E-Mail</label>
+                    <label for="email">E-Mail-Adresse</label>
                     <input type="email" id="email" required placeholder="name@firma.de">
                 </div>
                 <div class="form-group">
-                    <label for="message">Nachricht</label>
-                    <textarea id="message" rows="4" required placeholder="Wie können wir helfen?"></textarea>
+                    <label for="message">Ihre Nachricht</label>
+                    <textarea id="message" rows="4" required placeholder="Wie können wir Ihnen weiterhelfen?"></textarea>
                 </div>
-                <button type="submit" class="btn-glow btn-full">Nachricht senden</button>
+                <button type="submit" class="btn-red btn-full">Anfrage absenden</button>
             </form>
         </div>
     </section>
@@ -292,7 +455,7 @@
             if (contactForm) {
                 contactForm.addEventListener('submit', (e) => {
                     e.preventDefault();
-                    alert('Vielen Dank! Ihre Anfrage an die eZoller GmbH wurde übermittelt.');
+                    alert('Vielen Dank! Ihre Anfrage an die eZoller GmbH wurde erfolgreich übermittelt.');
                     contactForm.reset();
                 });
             }
