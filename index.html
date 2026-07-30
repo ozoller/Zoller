@@ -3,18 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZOLLER | Start with a Solution – Enter a System</title>
+    <title>ZOLLER Flyer | Start with a Solution – Enter a System</title>
     <style>
         :root {
-            /* Originale ZOLLER Markenfarben */
+            /* ZOLLER Originalfarben */
             --zoller-red: #E2001A;
-            --zoller-red-hover: #C10016;
             --zoller-dark: #1E2229;
-            --zoller-dark-secondary: #2A2F38;
             --zoller-gray: #F4F5F7;
-            --zoller-border: #E0E4E8;
+            --zoller-border: #D1D5DB;
             --text-dark: #1E2229;
-            --text-muted: #626C7A;
+            --text-muted: #4B5563;
             --white: #FFFFFF;
         }
 
@@ -26,478 +24,239 @@
         }
 
         body {
-            background-color: var(--zoller-gray);
+            background-color: #333333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 0;
             color: var(--text-dark);
-            line-height: 1.6;
+        }
+
+        /* A4 Flyer-Format (210mm x 297mm Proportionen) */
+        .flyer-page {
+            width: 210mm;
+            height: 297mm;
+            background: var(--white);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
             text-align: center;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        /* Dekorative ZOLLER-Kante oben */
+        .top-bar {
+            height: 12mm;
+            background-color: var(--zoller-red);
+            width: 100%;
         }
 
-        /* Top Bar & Header */
-        .header-wrapper {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            background: var(--white);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-            border-bottom: 3px solid var(--zoller-red);
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 80px;
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+        /* Header Bereich */
+        .header {
+            padding: 20px 30px 10px;
         }
 
         .logo {
-            font-size: 2rem;
+            font-size: 3rem;
             font-weight: 900;
             color: var(--zoller-dark);
-            text-decoration: none;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 5px;
         }
 
         .logo span {
             color: var(--zoller-red);
         }
 
-        /* Navigation & Dropdown */
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .nav-links li {
-            position: relative;
-        }
-
-        .nav-links a {
-            color: var(--zoller-dark);
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.95rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            padding: 10px 0;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--zoller-red);
-        }
-
-        /* Dropdown Sub-Menu */
-        .dropdown {
-            position: relative;
-        }
-
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--white);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-            border-radius: 4px;
-            list-style: none;
-            min-width: 260px;
-            border-top: 3px solid var(--zoller-red);
-            padding: 10px 0;
-        }
-
-        .dropdown-menu li {
-            width: 100%;
-        }
-
-        .dropdown-menu a {
-            display: block;
-            padding: 12px 20px;
-            color: var(--text-dark);
-            font-size: 0.85rem;
-            text-transform: none;
-            text-align: center;
-            font-weight: 600;
-        }
-
-        .dropdown-menu a:hover {
-            background-color: var(--zoller-gray);
-            color: var(--zoller-red);
-        }
-
-        .dropdown:hover .dropdown-menu {
-            display: block;
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 180px 0 90px;
-            background: linear-gradient(180deg, var(--white) 0%, var(--zoller-gray) 100%);
-            width: 100%;
-        }
-
         .slogan-badge {
             display: inline-block;
-            padding: 6px 18px;
-            background: rgba(226, 0, 26, 0.08);
-            border: 1px solid var(--zoller-red);
+            background: var(--zoller-gray);
+            border: 2px solid var(--zoller-red);
             color: var(--zoller-red);
-            border-radius: 4px;
-            font-size: 0.85rem;
+            padding: 6px 16px;
             font-weight: 800;
-            margin-bottom: 20px;
-            text-transform: uppercase;
+            font-size: 0.9rem;
+            border-radius: 4px;
             letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Hero / Haupt-Botschaft */
+        .hero {
+            padding: 20px 40px;
         }
 
         .hero h1 {
-            font-size: 3rem;
+            font-size: 2.2rem;
             color: var(--zoller-dark);
-            margin-bottom: 20px;
             font-weight: 800;
-            max-width: 900px;
             line-height: 1.2;
+            margin-bottom: 15px;
+            text-transform: uppercase;
         }
 
         .hero p {
+            font-size: 1.05rem;
             color: var(--text-muted);
-            font-size: 1.2rem;
-            max-width: 750px;
-            margin: 0 auto 40px;
+            max-width: 85%;
+            margin: 0 auto;
+            line-height: 1.5;
         }
 
-        .hero-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        /* Knöpfe */
-        .btn-red {
-            background: var(--zoller-red);
-            color: var(--white) !important;
-            padding: 14px 32px;
-            border-radius: 4px;
-            font-weight: 700;
-            text-decoration: none;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            letter-spacing: 0.5px;
-            transition: background 0.3s;
-            border: none;
-        }
-
-        .btn-red:hover {
-            background: var(--zoller-red-hover);
-        }
-
-        .btn-dark {
-            background: var(--zoller-dark);
-            color: var(--white) !important;
-            padding: 14px 32px;
-            border-radius: 4px;
-            font-weight: 700;
-            text-decoration: none;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            letter-spacing: 0.5px;
-            transition: background 0.3s;
-        }
-
-        .btn-dark:hover {
-            background: var(--zoller-dark-secondary);
-        }
-
-        /* System Grid Section */
-        .system-section {
-            padding: 90px 0;
-            width: 100%;
-        }
-
-        .section-title {
-            font-size: 2.2rem;
-            color: var(--zoller-dark);
-            margin-bottom: 15px;
-            font-weight: 800;
-            text-transform: uppercase;
-        }
-
-        .section-subtitle {
-            color: var(--text-muted);
-            margin-bottom: 50px;
-            max-width: 700px;
-            font-size: 1.1rem;
-        }
-
-        .cards-grid {
+        /* Drei Säulen / Features Grid */
+        .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            width: 100%;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            padding: 0 30px;
+            margin-top: 10px;
         }
 
         .card {
-            background: var(--white);
+            background: var(--zoller-gray);
             border: 1px solid var(--zoller-border);
-            padding: 40px 30px;
+            border-top: 4px solid var(--zoller-red);
+            padding: 20px 15px;
             border-radius: 4px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-            transition: transform 0.3s, border-color 0.3s;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: var(--zoller-red);
-        }
-
         .card-icon {
-            font-size: 2.8rem;
-            margin-bottom: 20px;
+            font-size: 2.2rem;
+            margin-bottom: 10px;
         }
 
         .card h3 {
+            font-size: 1.05rem;
             color: var(--zoller-dark);
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-            font-weight: 700;
-        }
-
-        .card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-
-        /* Contact Section */
-        .contact-section {
-            padding: 90px 0;
-            background: var(--white);
-            width: 100%;
-            border-top: 1px solid var(--zoller-border);
-        }
-
-        .contact-form {
-            max-width: 600px;
-            width: 100%;
-            margin: 0 auto;
-            background: var(--zoller-gray);
-            border: 1px solid var(--zoller-border);
-            padding: 40px;
-            border-radius: 4px;
-            text-align: left;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
             margin-bottom: 8px;
-            color: var(--zoller-dark);
             font-weight: 700;
-            font-size: 0.85rem;
             text-transform: uppercase;
         }
 
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            background: var(--white);
-            border: 1px solid var(--zoller-border);
-            color: var(--text-dark);
-            border-radius: 4px;
-            outline: none;
-            font-size: 1rem;
+        .card p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.4;
         }
 
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            border-color: var(--zoller-red);
-        }
-
-        .btn-full {
-            width: 100%;
-            cursor: pointer;
-        }
-
-        /* Footer */
-        footer {
+        /* Highlight-Box (Mitte/Unten) */
+        .highlight-box {
             background: var(--zoller-dark);
             color: var(--white);
-            padding: 40px 0;
-            width: 100%;
+            margin: 20px 30px;
+            padding: 25px;
+            border-radius: 4px;
+            border-left: 6px solid var(--zoller-red);
         }
 
-        footer p {
-            color: #8C96A3;
+        .highlight-box h2 {
+            font-size: 1.4rem;
+            color: var(--white);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .highlight-box p {
+            font-size: 0.95rem;
+            color: #D1D5DB;
+        }
+
+        /* Footer / Kontaktdaten */
+        .footer {
+            background: var(--zoller-gray);
+            border-top: 2px solid var(--zoller-border);
+            padding: 20px 30px;
+        }
+
+        .footer h3 {
+            font-size: 1.1rem;
+            color: var(--zoller-red);
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            font-weight: 800;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
             font-size: 0.9rem;
+            color: var(--text-dark);
+            font-weight: 600;
         }
 
-        /* Mobile Adjustments */
-        @media (max-width: 768px) {
-            .nav-container {
-                flex-direction: column;
-                height: auto;
-                padding: 15px;
+        /* Druck-Optimierung (Blendet Hintergründe beim Drucken nicht aus) */
+        @media print {
+            body {
+                background: none;
+                padding: 0;
             }
-            .nav-links {
-                margin-top: 15px;
-                flex-wrap: wrap;
-                gap: 15px;
-            }
-            .hero h1 {
-                font-size: 2rem;
-            }
-            .dropdown-menu {
-                position: static;
-                transform: none;
+            .flyer-page {
                 box-shadow: none;
+                width: 100%;
+                height: 100vh;
+            }
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
             }
         }
     </style>
 </head>
 <body>
 
-    <header class="header-wrapper">
-        <div class="nav-container">
-            <a href="#" class="logo">ZOLLER<span>.</span></a>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="#">Home</a></li>
-                    
-                    <li class="dropdown">
-                        <a href="#system">Das System &#9662;</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#system">Einstell- & Messgeräte</a></li>
-                            <li><a href="#system">Werkzeugverwaltung (TMS)</a></li>
-                            <li><a href="#system">Schrumpf- & Auswuchttechnik</a></li>
-                            <li><a href="#system">Smart Factory Automation</a></li>
-                        </ul>
-                    </li>
+    <div class="flyer-page">
+        <div>
+            <div class="top-bar"></div>
 
-                    <li><a href="#system">Branchen</a></li>
-                    <li><a href="#contact" class="btn-red">Anfrage senden</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <section class="hero">
-        <div class="container">
-            <div class="slogan-badge">Start with a Solution – Enter a System</div>
-            <h1>Maximale Effizienz in Ihrer Fertigung und Werkzeugverwaltung</h1>
-            <p>ZOLLER verbindet Mess- und Einstellgeräte, Software und Automatisierung zu einem durchgängigen Gesamtsystem für die zerspanende Fertigung.</p>
-            <div class="hero-buttons">
-                <a href="#contact" class="btn-red">Systemberater kontaktieren</a>
-                <a href="#system" class="btn-dark">Systemwelt entdecken</a>
+            <div class="header">
+                <div class="logo">ZOLLER<span>.</span></div>
+                <div class="slogan-badge">Start with a Solution – Enter a System</div>
             </div>
-        </div>
-    </section>
 
-    <section id="system" class="system-section">
-        <div class="container">
-            <h2 class="section-title">Das ZOLLER Ökosystem</h2>
-            <p class="section-subtitle">Vom einzelnen Werkzeug bis zur vollautomatischen Smart Factory – modular erweiterbar.</p>
+            <div class="hero">
+                <h1>Ihre Zukunft in der Zerspanung</h1>
+                <p>Verbinden Sie Mess- und Einstellgeräte, Werkzeugverwaltung und Automatisierung zu einem durchgängigen Gesamtsystem für Ihre Fertigung.</p>
+            </div>
 
-            <div class="cards-grid">
+            <div class="features-grid">
                 <div class="card">
                     <div class="card-icon">📐</div>
-                    <h3>Einstell- & Messgeräte</h3>
-                    <p>Höchste Präzision beim Messen und Einstellen von Zerspanungswerkzeugen zur Minimierung von Maschinenstillstandzeiten.</p>
+                    <h3>Einstellen & Messen</h3>
+                    <p>Höchste Präzision zur Vermeidung von Ausschuss und Maschinenstillstand.</p>
                 </div>
                 <div class="card">
                     <div class="card-icon">💻</div>
-                    <h3>TMS Tool Management</h3>
-                    <p>Zentrale Softwarelösung für transparente Werkzeugdaten, Lagerverwaltung und Anbindung an Ihr CAM/ERP-System.</p>
+                    <h3>TMS Software</h3>
+                    <p>Zentrale Datenverwaltung vom Lager bis zur CNC-Maschine.</p>
                 </div>
                 <div class="card">
                     <div class="card-icon">🤖</div>
                     <h3>Smart Automation</h3>
-                    <p>Robotergestützte Werkzeugvorbereitung, autonomer Transport und automatisierte Qualitätsprüfung rund um die Uhr.</p>
+                    <p>Autonome Werkzeugvorbereitung für die Smart Factory 4.0.</p>
                 </div>
             </div>
+
+            <div class="highlight-box">
+                <h2>Warum ZOLLER?</h2>
+                <p>Modular erweiterbare Lösungen für maximale Wirtschaftlichkeit, Prozesssicherheit und Transparenz in Ihrer gesamten Produktion.</p>
+            </div>
         </div>
-    </section>
 
-    <section id="contact" class="contact-section">
-        <div class="container">
-            <h2 class="section-title">Anfrage & Beratung</h2>
-            <p class="section-subtitle">Sprechen Sie mit unseren Experten über die Optimierung Ihrer Fertigungsprozesse.</p>
-
-            <form id="contactForm" class="contact-form">
-                <div class="form-group">
-                    <label for="name">Name / Ansprechpartner</label>
-                    <input type="text" id="name" required placeholder="Ihr Name">
-                </div>
-                <div class="form-group">
-                    <label for="company">Firma</label>
-                    <input type="text" id="company" required placeholder="Ihre Firma GmbH">
-                </div>
-                <div class="form-group">
-                    <label for="email">E-Mail-Adresse</label>
-                    <input type="email" id="email" required placeholder="name@firma.de">
-                </div>
-                <div class="form-group">
-                    <label for="interest">Interesse an</label>
-                    <select id="interest">
-                        <option value="presetting">Einstell- & Messgeräte</option>
-                        <option value="tms">TMS Tool Management Software</option>
-                        <option value="shrinking">Schrumpf- & Auswuchttechnik</option>
-                        <option value="automation">Automation & Smart Factory</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="message">Nachricht</label>
-                    <textarea id="message" rows="4" required placeholder="Wie können wir Ihre Fertigung unterstützen?"></textarea>
-                </div>
-                <button type="submit" class="btn-red btn-full">Anfrage absenden</button>
-            </form>
+        <div class="footer">
+            <h3>Jetzt Beratungstermin Vereinbaren</h3>
+            <div class="contact-info">
+                <span>🌐 www.zoller.info</span>
+                <span>✉️ info@zoller.info</span>
+                <span>📞 +49 (0)7144 8970-0</span>
+            </div>
         </div>
-    </section>
+    </div>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 E. ZOLLER GmbH & Co. KG | Alle Rechte vorbehalten.</p>
-        </div>
-    </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const contactForm = document.getElementById('contactForm');
-
-            if (contactForm) {
-                contactForm.addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    alert('Vielen Dank! Ihre Anfrage wurde an das ZOLLER Vertriebsteam übermittelt.');
-                    contactForm.reset();
-                });
-            }
-        });
-    </script>
 </body>
 </html>
