@@ -3,35 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>eZoller GmbH | Digitale Zollarabwicklung & Lösungen</title>
+    <title>ZOLLER | Start with a Solution – Enter a System</title>
     <style>
         :root {
-            --zoller-red: #D32F2F;
-            --zoller-dark-red: #B71C1C;
-            --zoller-dark: #1F242B;
+            /* Originale ZOLLER Markenfarben */
+            --zoller-red: #E2001A;
+            --zoller-red-hover: #C10016;
+            --zoller-dark: #1E2229;
+            --zoller-dark-secondary: #2A2F38;
             --zoller-gray: #F4F5F7;
-            --zoller-card: #FFFFFF;
-            --text-dark: #222222;
-            --text-muted: #666666;
-            --border-color: #E0E0E0;
+            --zoller-border: #E0E4E8;
+            --text-dark: #1E2229;
+            --text-muted: #626C7A;
+            --white: #FFFFFF;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Arial, sans-serif;
         }
 
         body {
             background-color: var(--zoller-gray);
             color: var(--text-dark);
             line-height: 1.6;
-            text-align: center; /* Alles zentral ausrichten */
+            text-align: center;
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
             display: flex;
@@ -39,15 +41,15 @@
             align-items: center;
         }
 
-        /* Header / Navigation */
-        .navbar {
-            background: #FFFFFF;
-            border-bottom: 3px solid var(--zoller-red);
+        /* Top Bar & Header */
+        .header-wrapper {
             position: fixed;
-            width: 100%;
             top: 0;
+            width: 100%;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            border-bottom: 3px solid var(--zoller-red);
         }
 
         .nav-container {
@@ -56,27 +58,29 @@
             align-items: center;
             height: 80px;
             width: 100%;
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
         .logo {
-            font-size: 1.8rem;
-            font-weight: 800;
+            font-size: 2rem;
+            font-weight: 900;
             color: var(--zoller-dark);
             text-decoration: none;
-            letter-spacing: -0.5px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
-        .logo span { 
-            color: var(--zoller-red); 
+        .logo span {
+            color: var(--zoller-red);
         }
 
+        /* Navigation & Dropdown */
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 25px;
+            gap: 30px;
             align-items: center;
             justify-content: center;
         }
@@ -88,7 +92,10 @@
         .nav-links a {
             color: var(--zoller-dark);
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
             padding: 10px 0;
             transition: color 0.3s;
         }
@@ -97,7 +104,7 @@
             color: var(--zoller-red);
         }
 
-        /* Dropdown Menu Tab */
+        /* Dropdown Sub-Menu */
         .dropdown {
             position: relative;
         }
@@ -108,12 +115,12 @@
             top: 100%;
             left: 50%;
             transform: translateX(-50%);
-            background: #FFFFFF;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            border-radius: 6px;
+            background: var(--white);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+            border-radius: 4px;
             list-style: none;
-            min-width: 220px;
-            border-top: 2px solid var(--zoller-red);
+            min-width: 260px;
+            border-top: 3px solid var(--zoller-red);
             padding: 10px 0;
         }
 
@@ -123,10 +130,12 @@
 
         .dropdown-menu a {
             display: block;
-            padding: 10px 20px;
+            padding: 12px 20px;
             color: var(--text-dark);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            text-transform: none;
             text-align: center;
+            font-weight: 600;
         }
 
         .dropdown-menu a:hover {
@@ -140,108 +149,118 @@
 
         /* Hero Section */
         .hero {
-            padding: 180px 0 80px;
-            background: linear-gradient(180deg, #FFFFFF 0%, var(--zoller-gray) 100%);
+            padding: 180px 0 90px;
+            background: linear-gradient(180deg, var(--white) 0%, var(--zoller-gray) 100%);
             width: 100%;
         }
 
-        .badge {
+        .slogan-badge {
             display: inline-block;
-            padding: 6px 16px;
-            background: rgba(211, 47, 47, 0.08);
+            padding: 6px 18px;
+            background: rgba(226, 0, 26, 0.08);
             border: 1px solid var(--zoller-red);
             color: var(--zoller-red);
-            border-radius: 20px;
+            border-radius: 4px;
             font-size: 0.85rem;
-            font-weight: 700;
+            font-weight: 800;
             margin-bottom: 20px;
             text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .hero h1 {
-            font-size: 2.8rem;
+            font-size: 3rem;
             color: var(--zoller-dark);
             margin-bottom: 20px;
-            max-width: 800px;
+            font-weight: 800;
+            max-width: 900px;
+            line-height: 1.2;
         }
 
         .hero p {
             color: var(--text-muted);
-            font-size: 1.15rem;
-            max-width: 650px;
-            margin: 0 auto 35px;
+            font-size: 1.2rem;
+            max-width: 750px;
+            margin: 0 auto 40px;
         }
 
         .hero-buttons {
             display: flex;
             justify-content: center;
-            gap: 15px;
+            gap: 20px;
             flex-wrap: wrap;
         }
 
-        /* Buttons */
+        /* Knöpfe */
         .btn-red {
             background: var(--zoller-red);
-            color: #FFFFFF !important;
-            padding: 12px 28px;
+            color: var(--white) !important;
+            padding: 14px 32px;
             border-radius: 4px;
             font-weight: 700;
             text-decoration: none;
-            border: none;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
             transition: background 0.3s;
+            border: none;
         }
 
         .btn-red:hover {
-            background: var(--zoller-dark-red);
+            background: var(--zoller-red-hover);
         }
 
-        .btn-outline {
-            background: transparent;
-            color: var(--zoller-dark);
-            border: 2px solid var(--zoller-dark);
-            padding: 10px 26px;
+        .btn-dark {
+            background: var(--zoller-dark);
+            color: var(--white) !important;
+            padding: 14px 32px;
             border-radius: 4px;
             font-weight: 700;
             text-decoration: none;
-            transition: all 0.3s;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            transition: background 0.3s;
         }
 
-        .btn-outline:hover {
-            background: var(--zoller-dark);
-            color: #FFFFFF;
+        .btn-dark:hover {
+            background: var(--zoller-dark-secondary);
         }
 
-        /* Services Section */
-        .services { 
-            padding: 80px 0; 
+        /* System Grid Section */
+        .system-section {
+            padding: 90px 0;
             width: 100%;
         }
 
-        .section-title { 
+        .section-title {
             font-size: 2.2rem;
             color: var(--zoller-dark);
-            margin-bottom: 10px; 
+            margin-bottom: 15px;
+            font-weight: 800;
+            text-transform: uppercase;
         }
 
         .section-subtitle {
             color: var(--text-muted);
-            margin-bottom: 40px;
-            max-width: 600px;
+            margin-bottom: 50px;
+            max-width: 700px;
+            font-size: 1.1rem;
         }
 
         .cards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
             width: 100%;
         }
 
         .card {
-            background: var(--zoller-card);
-            border: 1px solid var(--border-color);
-            padding: 35px 25px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            background: var(--white);
+            border: 1px solid var(--zoller-border);
+            padding: 40px 30px;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
             transition: transform 0.3s, border-color 0.3s;
             display: flex;
             flex-direction: column;
@@ -253,15 +272,16 @@
             border-color: var(--zoller-red);
         }
 
-        .card-icon { 
-            font-size: 2.5rem; 
-            margin-bottom: 15px; 
+        .card-icon {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
         }
 
         .card h3 {
             color: var(--zoller-dark);
-            margin-bottom: 12px;
+            margin-bottom: 15px;
             font-size: 1.3rem;
+            font-weight: 700;
         }
 
         .card p {
@@ -269,74 +289,76 @@
             font-size: 0.95rem;
         }
 
-        /* Formular Section */
-        .contact { 
-            padding: 80px 0; 
-            background: #FFFFFF;
+        /* Contact Section */
+        .contact-section {
+            padding: 90px 0;
+            background: var(--white);
             width: 100%;
-            border-top: 1px solid var(--border-color);
+            border-top: 1px solid var(--zoller-border);
         }
 
         .contact-form {
-            max-width: 550px;
+            max-width: 600px;
             width: 100%;
             margin: 0 auto;
             background: var(--zoller-gray);
-            border: 1px solid var(--border-color);
+            border: 1px solid var(--zoller-border);
             padding: 40px;
-            border-radius: 8px;
-            text-align: left; /* Text der Formular-Labels linksbündig für Lesbarkeit */
+            border-radius: 4px;
+            text-align: left;
         }
 
-        .form-group { 
-            margin-bottom: 20px; 
+        .form-group {
+            margin-bottom: 20px;
         }
 
-        .form-group label { 
-            display: block; 
-            margin-bottom: 8px; 
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
             color: var(--zoller-dark);
-            font-weight: 600;
-            font-size: 0.9rem;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
         }
 
-        .form-group input, 
+        .form-group input,
+        .form-group select,
         .form-group textarea {
             width: 100%;
             padding: 12px;
-            background: #FFFFFF;
-            border: 1px solid var(--border-color);
+            background: var(--white);
+            border: 1px solid var(--zoller-border);
             color: var(--text-dark);
             border-radius: 4px;
             outline: none;
             font-size: 1rem;
         }
 
-        .form-group input:focus, 
+        .form-group input:focus,
+        .form-group select:focus,
         .form-group textarea:focus {
             border-color: var(--zoller-red);
         }
 
-        .btn-full { 
-            width: 100%; 
-            cursor: pointer; 
-            font-size: 1rem;
+        .btn-full {
+            width: 100%;
+            cursor: pointer;
         }
 
         /* Footer */
         footer {
             background: var(--zoller-dark);
-            color: #FFFFFF;
+            color: var(--white);
             padding: 40px 0;
             width: 100%;
         }
 
         footer p {
-            color: #A0AAB0;
+            color: #8C96A3;
             font-size: 0.9rem;
         }
 
-        /* Responsive Design */
+        /* Mobile Adjustments */
         @media (max-width: 768px) {
             .nav-container {
                 flex-direction: column;
@@ -346,6 +368,7 @@
             .nav-links {
                 margin-top: 15px;
                 flex-wrap: wrap;
+                gap: 15px;
             }
             .hero h1 {
                 font-size: 2rem;
@@ -360,23 +383,25 @@
 </head>
 <body>
 
-    <header class="navbar">
+    <header class="header-wrapper">
         <div class="nav-container">
-            <a href="#" class="logo">eZoller<span>GmbH</span></a>
+            <a href="#" class="logo">ZOLLER<span>.</span></a>
             <nav>
                 <ul class="nav-links">
-                    <li><a href="#">Startseite</a></li>
+                    <li><a href="#">Home</a></li>
                     
                     <li class="dropdown">
-                        <a href="#services">Leistungen &#9662;</a>
+                        <a href="#system">Das System &#9662;</a>
                         <ul class="dropdown-menu">
-                            <li><a href="#services">Import & Export</a></li>
-                            <li><a href="#services">Zoll-Schnittstellen</a></li>
-                            <li><a href="#services">Tarifierung & Audit</a></li>
+                            <li><a href="#system">Einstell- & Messgeräte</a></li>
+                            <li><a href="#system">Werkzeugverwaltung (TMS)</a></li>
+                            <li><a href="#system">Schrumpf- & Auswuchttechnik</a></li>
+                            <li><a href="#system">Smart Factory Automation</a></li>
                         </ul>
                     </li>
-                    
-                    <li><a href="#contact" class="btn-red">Kontakt</a></li>
+
+                    <li><a href="#system">Branchen</a></li>
+                    <li><a href="#contact" class="btn-red">Anfrage senden</a></li>
                 </ul>
             </nav>
         </div>
@@ -384,58 +409,71 @@
 
     <section class="hero">
         <div class="container">
-            <div class="badge">Zoll & Logistik 4.0</div>
-            <h1>Automatisierte Zollprozesse für den globalen Handel</h1>
-            <p>Die eZoller GmbH kombiniert langjährige Zollerfahrung mit modernen, KI-gestützten Digitallösungen. Schnell, rechtssicher und effizient.</p>
+            <div class="slogan-badge">Start with a Solution – Enter a System</div>
+            <h1>Maximale Effizienz in Ihrer Fertigung und Werkzeugverwaltung</h1>
+            <p>ZOLLER verbindet Mess- und Einstellgeräte, Software und Automatisierung zu einem durchgängigen Gesamtsystem für die zerspanende Fertigung.</p>
             <div class="hero-buttons">
-                <a href="#contact" class="btn-red">Erstberatung buchen</a>
-                <a href="#services" class="btn-outline">Leistungen entdecken</a>
+                <a href="#contact" class="btn-red">Systemberater kontaktieren</a>
+                <a href="#system" class="btn-dark">Systemwelt entdecken</a>
             </div>
         </div>
     </section>
 
-    <section id="services" class="services">
+    <section id="system" class="system-section">
         <div class="container">
-            <h2 class="section-title">Unsere Kernkompetenzen</h2>
-            <p class="section-subtitle">Maßgeschneiderte Digitallösungen für Ihre grenzüberschreitenden Warenströme.</p>
-            
+            <h2 class="section-title">Das ZOLLER Ökosystem</h2>
+            <p class="section-subtitle">Vom einzelnen Werkzeug bis zur vollautomatischen Smart Factory – modular erweiterbar.</p>
+
             <div class="cards-grid">
                 <div class="card">
-                    <div class="card-icon">📦</div>
-                    <h3>Import- & Exportabwicklung</h3>
-                    <p>Rechtssichere Erstellung und Übermittlung aller Zollausfuhren und EInfuhren über ATLAS & NCTS.</p>
+                    <div class="card-icon">📐</div>
+                    <h3>Einstell- & Messgeräte</h3>
+                    <p>Höchste Präzision beim Messen und Einstellen von Zerspanungswerkzeugen zur Minimierung von Maschinenstillstandzeiten.</p>
                 </div>
                 <div class="card">
-                    <div class="card-icon">⚡</div>
-                    <h3>Automatisierte Schnittstellen</h3>
-                    <p>Direkte ERP-Anbindung zur Übertragung Ihrer Zoll- und Produktdaten in Echtzeit.</p>
+                    <div class="card-icon">💻</div>
+                    <h3>TMS Tool Management</h3>
+                    <p>Zentrale Softwarelösung für transparente Werkzeugdaten, Lagerverwaltung und Anbindung an Ihr CAM/ERP-System.</p>
                 </div>
                 <div class="card">
-                    <div class="card-icon">🔍</div>
-                    <h3>Tarifierung & Beratung</h3>
-                    <p>Präzise Einreihung Ihrer Waren in den Zolltarif zur rechtssicheren Optimierung von Abgaben.</p>
+                    <div class="card-icon">🤖</div>
+                    <h3>Smart Automation</h3>
+                    <p>Robotergestützte Werkzeugvorbereitung, autonomer Transport und automatisierte Qualitätsprüfung rund um die Uhr.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="contact">
+    <section id="contact" class="contact-section">
         <div class="container">
-            <h2 class="section-title">Kontaktieren Sie uns</h2>
-            <p class="section-subtitle">Wir freuen uns darauf, Ihre Zollprozesse zu optimieren.</p>
-            
+            <h2 class="section-title">Anfrage & Beratung</h2>
+            <p class="section-subtitle">Sprechen Sie mit unseren Experten über die Optimierung Ihrer Fertigungsprozesse.</p>
+
             <form id="contactForm" class="contact-form">
                 <div class="form-group">
-                    <label for="name">Vollständiger Name</label>
-                    <input type="text" id="name" required placeholder="Max Mustermann">
+                    <label for="name">Name / Ansprechpartner</label>
+                    <input type="text" id="name" required placeholder="Ihr Name">
+                </div>
+                <div class="form-group">
+                    <label for="company">Firma</label>
+                    <input type="text" id="company" required placeholder="Ihre Firma GmbH">
                 </div>
                 <div class="form-group">
                     <label for="email">E-Mail-Adresse</label>
                     <input type="email" id="email" required placeholder="name@firma.de">
                 </div>
                 <div class="form-group">
-                    <label for="message">Ihre Nachricht</label>
-                    <textarea id="message" rows="4" required placeholder="Wie können wir Ihnen weiterhelfen?"></textarea>
+                    <label for="interest">Interesse an</label>
+                    <select id="interest">
+                        <option value="presetting">Einstell- & Messgeräte</option>
+                        <option value="tms">TMS Tool Management Software</option>
+                        <option value="shrinking">Schrumpf- & Auswuchttechnik</option>
+                        <option value="automation">Automation & Smart Factory</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Nachricht</label>
+                    <textarea id="message" rows="4" required placeholder="Wie können wir Ihre Fertigung unterstützen?"></textarea>
                 </div>
                 <button type="submit" class="btn-red btn-full">Anfrage absenden</button>
             </form>
@@ -444,7 +482,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 eZoller GmbH. Alle Rechte vorbehalten.</p>
+            <p>&copy; 2026 E. ZOLLER GmbH & Co. KG | Alle Rechte vorbehalten.</p>
         </div>
     </footer>
 
@@ -455,7 +493,7 @@
             if (contactForm) {
                 contactForm.addEventListener('submit', (e) => {
                     e.preventDefault();
-                    alert('Vielen Dank! Ihre Anfrage an die eZoller GmbH wurde erfolgreich übermittelt.');
+                    alert('Vielen Dank! Ihre Anfrage wurde an das ZOLLER Vertriebsteam übermittelt.');
                     contactForm.reset();
                 });
             }
